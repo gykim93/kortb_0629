@@ -24,6 +24,10 @@ class App {
                 String authorName = scanner.nextLine().trim();// 작가 입력 시 공백 제거
 
                 lastQuotatinId++;
+
+                int id = lastQuotatinId;
+
+                Quotation quotation = new Quotation(id, content, authorName);
                 System.out.printf("%d번 명언이 등록되었습니다.\n",lastQuotatinId);
             }
         }
