@@ -1,5 +1,7 @@
 package com.ll;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 class App {
@@ -7,6 +9,9 @@ class App {
         System.out.println("프로그램 실행");
         System.out.println("== 명언 앱 ==");
         int lastQuotatinId = 0;
+
+        List<Quotation> quotations = new ArrayList<>();
+
         while (true) {
             System.out.print("명령) ");
             
@@ -28,7 +33,11 @@ class App {
                 int id = lastQuotatinId;
 
                 Quotation quotation = new Quotation(id, content, authorName);
+                quotations.add(quotation);
                 System.out.printf("%d번 명언이 등록되었습니다.\n",lastQuotatinId);
+            }
+            else if (cmd.equals("목록")) {
+                System.out.println("총 갯수 : " + quotations.size());
             }
         }
     }
