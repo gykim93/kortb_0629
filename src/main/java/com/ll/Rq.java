@@ -9,6 +9,7 @@ public class Rq {
     String queryString;
     Map<String, String> paramsMap;
 
+
     Rq(String cmd) {
         paramsMap = new HashMap<>();
 
@@ -16,6 +17,11 @@ public class Rq {
 
         String[] cmdBits = cmd.split("\\?", 2);
         action = cmdBits[0].trim();
+
+        if (cmdBits.length == 1) { // ? 없어서 cmdBits에 배열에 요소가 하나뿐인 경우
+            return;
+        }
+
         queryString = cmdBits[1].trim();
 
         String[] queryStringBits = queryString.split("&");
