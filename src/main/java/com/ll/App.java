@@ -107,7 +107,23 @@ public class App {
             System.out.println("id를 정확히 입력해주세요.");
             return; // 함수를 끝낸다.
         }
+        int index = getIndexIfQuotationById(id);
+        if (index == -1) {
+            System.out.printf("%d번 명언은 존재하지 않습니다.\n", id);
+            return;
+        }
+        Quotation quotation = quotations.get(index);
+        System.out.printf("명언(기존) : %s\n",quotation.content);
+        System.out.println("명언 : ");
+        String content = scanner.nextLine();
 
-        System.out.printf("%d번 명언을 수정합니다.\n", id);
+        System.out.printf("작가(기존) : %s\n",quotation.authorName);
+        System.out.println("작가 : ");
+        String authorName = scanner.nextLine();
+
+        quotation.content = content;
+        quotation.authorName = authorName;
+
+        System.out.printf("%d번 명언을 수정되었습니다.\n", id);
     }
 }
